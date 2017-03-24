@@ -5,26 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PencilCodeConverter"
         mc:Ignorable="d"
-        Title="PencilCode Converter" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+        Title="PencilCode Converter" Height="318.811" Width="601" WindowStartupLocation="CenterScreen">
     <Grid Background="DarkBlue">
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Width="Auto" Background="Yellow">
-            <TabItem Background="Yellow" Header="PencilCode" FontSize="20" Width="150">
-                <Grid HorizontalAlignment="Stretch" Background="DarkBlue">
-                    <Button x:Name="PencilCode_Button" Background="Green" Foreground="White" Content="PencilCode" FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="161" Height="126" Click="PencilCode_Button_Click"/>
-                    <Button x:Name="CreateAccount_Button" Background="Green" Foreground="White" Content="Create Account" FontWeight="Bold" FontSize="20" HorizontalAlignment="Right" Margin="0,50,10,0"  VerticalAlignment="Top" Width="161" Height="126"/>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" VerticalAlignment="Top" Height="288" Width="592" Background="Green">
+            <TabItem Background="Gray" Header="PencilCode" FontSize="20">
+                <Grid HorizontalAlignment="Stretch" Background="Green">
+                    <Button x:Name="PencilCode_Button" Background="DarkBlue" Foreground="White" Content="PencilCode" FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="245" Click="PencilCode_Button_Click" Margin="10,0,0,0"/>
+                    <Button x:Name="CreateAccount_Button" Background="DarkBlue" Foreground="White" Content="Create Account" FontWeight="Bold" FontSize="20" HorizontalAlignment="Right"  VerticalAlignment="Top" Width="161" Height="245" Margin="0,0,10,0"/>
                 </Grid>
             </TabItem>
-            <TabItem Background="Yellow" Header="Convert" FontSize="20" Width="150">
-                <Grid HorizontalAlignment="Stretch" Background="DarkBlue">
-                    <TextBox x:Name="PencilCode_URL" HorizontalAlignment="Center" Height="59" TextAlignment="Center" FontSize="20" Foreground="Gray" TextWrapping="Wrap" VerticalAlignment="Top" Width="487" GotFocus="PencilCode_URL_GotFocus" Margin="10,10,10,0"/>
-                    <TextBlock x:Name="New_URL_TextBlock" Foreground="White" HorizontalAlignment="Center" Margin="10,96,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="487" TextAlignment="Center"/>
-                    <Button x:Name="Enter_Button" Content="ENTER" FontWeight="Bold" FontSize="45" Background="Green" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" Height="101" Margin="10,154,347,0" Click="Enter_Button_Click"/>
-                    <Button x:Name="Download_Button" Content="DOWNLOAD" FontWeight="Bold" FontSize="25" Background="Orange" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" Height="101" Margin="347,154,10,0" Click="Download_Button_Click" IsEnabled="False"/>
+            <TabItem Background="Gray" Header="Convert" FontSize="20">
+                <Grid HorizontalAlignment="Stretch" Background="Green">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="65*"/>
+                        <ColumnDefinition Width="226*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="PencilCode_URL" HorizontalAlignment="Center" Height="59" TextAlignment="Center" FontSize="20" Foreground="Gray" TextWrapping="Wrap" VerticalAlignment="Top" Width="562" GotFocus="PencilCode_URL_GotFocus" Margin="10,10,10,0" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="New_URL_TextBlock" Foreground="Green" HorizontalAlignment="Center" Margin="48,74,47,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="487" TextAlignment="Center" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Enter_Button" Content="ENTER" FontWeight="Bold" FontSize="45" Background="DarkBlue" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="162" Height="139" Margin="10,96,410,0" Click="Enter_Button_Click" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Download_Button" Content="DOWNLOAD" FontWeight="Bold" FontSize="25" Background="Cyan" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Width="162" Height="139" Margin="280,96,10,0" Click="Download_Button_Click" Grid.Column="1" IsEnabled="False"/>
                 </Grid>
             </TabItem>
-            <TabItem Background="Yellow" Header="Robot Upload" FontSize="20" Width="150">
-                <Grid Background="DarkBlue">
-                    <Button Background="Green" Foreground="White" Content="Open Compiler" FontWeight="Bold" FontSize="50" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="424" Height="126"/>
+            <TabItem Background="Gray" Header="Microsoft Small Basic" FontSize="20">
+                <Grid>
+                    <Button x:Name="SB_Button" Content="Small Basic" FontWeight="Bold" FontSize="25" Background="DarkBlue" Foreground="White" Width="200" Height="200" Click="SB_Button_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>
