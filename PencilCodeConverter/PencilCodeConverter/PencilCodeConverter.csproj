@@ -94,8 +94,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Documentation\EV3 Basic Manual.pdf" />
-    <None Include="Documentation\Introducing Small Basic.pdf" />
+    <None Include="Documentation\EV3Manual.pdf" />
+    <None Include="Documentation\IntroToSmallBasic.pdf" />
     <None Include="Installation\EV3BasicInstaller.msi">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -114,7 +114,17 @@
   <ItemGroup>
     <Resource Include="ReadMe.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

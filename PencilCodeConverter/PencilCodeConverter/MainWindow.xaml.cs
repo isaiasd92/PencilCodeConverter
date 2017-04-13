@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace PencilCodeConverter
 {
@@ -142,6 +143,24 @@ namespace PencilCodeConverter
         private void SB_Button_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("C:/Users/Owner/Desktop/Microsoft Small Basic");
+        }
+
+        public string FilePath(string _file)
+        {
+            string fileName = _file;
+            string path = System.IO.Path.Combine(Environment.CurrentDirectory, @"Documenation\", fileName);
+            return path;
+        }
+
+        private void EV3Doc_Button_Click(object sender, RoutedEventArgs e)
+        {
+            //System.Diagnostics.Process.Start(FilePath("EV3Manual.pdf"));
+            System.Diagnostics.Process.Start("EV3Document.html");
+        }
+
+        private void MSBDoc_Button_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(FilePath("IntroToSmallBasic.pdf"));
         }
     }
 }

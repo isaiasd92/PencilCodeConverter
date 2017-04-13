@@ -15,3 +15,5 @@ C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeCo
 C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\PencilCodeConverter.csproj.GenerateResource.Cache
 C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\PencilCodeConverter.exe
 C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\PencilCodeConverter.pdb
+C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\PencilCodeConverter.csprojResolveAssemblyReference.cache
+C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\PencilCodeConverter.csproj.ResolveComReference.cache

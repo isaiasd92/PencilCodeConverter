@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("startmenuicon.exe")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ev3document.html")]
 
 
