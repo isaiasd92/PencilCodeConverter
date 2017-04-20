@@ -50,7 +50,7 @@ namespace PencilCodeConverter
                     break;
             }
 
-            string robotCode = @"C:/Users/Owner/Desktop/robotCode.sb";
+            string robotCode = main.GetDesktopDirectory("robotCode.sb");    //Gets the desktop directory for the robotCode file
             main.FileExists(robotCode, SB);             // After the file is completely read, the program checks if the new converted file exists
             File.Delete(main.FileName);                 // The original pencilcode text file is deleted for cleanup
         }

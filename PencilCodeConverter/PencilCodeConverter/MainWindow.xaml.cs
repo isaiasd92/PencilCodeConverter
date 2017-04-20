@@ -24,41 +24,26 @@ namespace PencilCodeConverter
     /// </summary>
     public partial class MainWindow : Window
     {
-        string outFile = @"C:/Users/Owner/Desktop/Data.txt";            // Temporary file for the PencilCode data
-        string directory = @"C:/Users/Owner/PencilCodeConverter";       // Directory path for the installation-checker file
-
         public MainWindow()
         {
-            CreateProjectFolder();      //  Creates a new directory for the installation-checker file
             InitializeComponent();
         }
 
         /*   Returns the output-file's name  */
         public string FileName
         {
-            get { return outFile; }
+            get { return GetDesktopDirectory("Data.txt"); }
         }
 
         /*   Changes the URL for the pencilcode project to a text format   */
         private void URL_Conversion()
         {
-            //string old_url = PencilCode_URL.Text;
-            /*    ^^************************^^ REMOVE ^^**************************^^    */
-            /*    ^^************************^^ REMOVE ^^**************************^^    */
-            /*    ^^************************^^ REMOVE ^^**************************^^    */
-            string old_url = "http://batmanizzy2.pencilcode.net/edit/intro";
-            /*    ^^************************^^ REMOVE ^^**************************^^    */
-            /*    ^^************************^^ REMOVE ^^**************************^^    */
-            /*    ^^************************^^ REMOVE ^^**************************^^    */
-            /*    ^^************************^^ REMOVE ^^**************************^^    */
+            string old_url = PencilCode_URL.Text;
+
+            //string old_url = "http://batmanizzy2.pencilcode.net/edit/intro";
+
             string new_url = old_url.Replace("edit", "code");
             New_URL_TextBlock.Text = new_url;
-        }
-
-        /*   Creates a project folder for the installation-checker file   */
-        public void CreateProjectFolder()
-        {
-            DirectoryExists(directory, (directory+"/FileChecker.txt"), "true");
         }
 
         /*   Downloads the project URL with the new and edited text-formated URL   */
@@ -66,7 +51,7 @@ namespace PencilCodeConverter
         {
             WebClient client = new WebClient();
             string text = client.DownloadString(New_URL_TextBlock.Text);
-            FileExists(outFile, text);
+            FileExists(FileName, text);
         }
 
         /*   Checks if the project folder directory exists   */
@@ -93,7 +78,7 @@ namespace PencilCodeConverter
                 File.Delete(_file);
                 FileExists(_file, _data);
             }
-            File.WriteAllText(outFile, _data);
+            File.WriteAllText(FileName, _data);
         }
 
         /*   Checks if a given file exists   */
@@ -117,7 +102,7 @@ namespace PencilCodeConverter
         private void PencilCode_URL_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox tb = (TextBox)sender;
-            //MessageBox.Show("Enter PencilCode Project URL Here");
+            MessageBox.Show("Enter PencilCode Project URL Here");
             tb.Text = string.Empty;
             tb.GotFocus -= PencilCode_URL_GotFocus;
         }
@@ -130,37 +115,37 @@ namespace PencilCodeConverter
             Download_Button.Foreground = new SolidColorBrush(Colors.Black);
         }
 
+        /*    Returns the Desktop path for a given file/program  */
+        public string GetDesktopDirectory(string fileName)
+        {
+            string filePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            filePath = filePath + @"\"+fileName;
+            return filePath;
+        }
+
         /*   Clicking this button downloads the pencilcode text file and converts the data into a valid EV3 file and opens the Microsoft Small Basic program   */
         private void Download_Button_Click(object sender, RoutedEventArgs e)
         {
             DownloadFile();
             Files file = new Files();
-            file.FileConversion(outFile);
-            System.Diagnostics.Process.Start("C:/Users/Owner/Desktop/Microsoft Small Basic");
+            file.FileConversion(FileName);
+            System.Diagnostics.Process.Start(GetDesktopDirectory("Microsoft Small Basic"));
         }
 
         /*   Clicking this button allows the user to open Microsoft Small Basic at any time   */
         private void SB_Button_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("C:/Users/Owner/Desktop/Microsoft Small Basic");
-        }
-
-        public string FilePath(string _file)
-        {
-            string fileName = _file;
-            string path = System.IO.Path.Combine(Environment.CurrentDirectory, @"Documenation\", fileName);
-            return path;
+            System.Diagnostics.Process.Start(GetDesktopDirectory("Microsoft Small Basic"));
         }
 
         private void EV3Doc_Button_Click(object sender, RoutedEventArgs e)
         {
-            //System.Diagnostics.Process.Start(FilePath("EV3Manual.pdf"));
-            System.Diagnostics.Process.Start("EV3Document.html");
+            System.Diagnostics.Process.Start("https://sites.google.com/site/ev3basic/ev3-basic-programming/ev3-basic-manual");
         }
 
         private void MSBDoc_Button_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start(FilePath("IntroToSmallBasic.pdf"));
+            System.Diagnostics.Process.Start("https://www.dropbox.com/s/8gwdmrq4mvp8ujs/IntroToSmallBasic.pdf?dl=0");
         }
     }
 }

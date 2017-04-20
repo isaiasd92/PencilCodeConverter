@@ -21,6 +21,8 @@ namespace PencilCodeConverter
     /// </summary>
     public partial class Setup : Window
     {
+        string path = @"C:\EV3FilesInstalled.txt";
+
         public Setup()
         {
             try
@@ -40,25 +42,16 @@ namespace PencilCodeConverter
         /*   Checks if the files are installed in the user's computer and returns the status   */
         public bool Checker()
         {
-            string file = "C:/Users/Owner/PencilCodeConverter/FileChecker.txt";
-            string check = System.IO.File.ReadAllText(file);
+            string check = System.IO.File.ReadAllText(path);
             if (check == "true")
                 return true;
             return false;
         }
 
-        /*   Returns the path of the installation files   */
-        public string GetPath(string name)
-        {
-            string fileName = name;
-            string path = System.IO.Path.Combine(Environment.CurrentDirectory, @"Installation\", fileName);
-            return path;
-        }
-
         /*   Clicking this button will install the EV3 software and makes the next button visible to the user   */
         private void EV3_Button_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start(GetPath("EV3BasicInstaller.msi"));
+            //System.Diagnostics.Process.Start(GetPath("EV3BasicInstaller.msi"));
             MSB_Button.IsEnabled = true;
             MSB_Button.Foreground = new SolidColorBrush(Colors.Black);
         }
@@ -66,13 +59,16 @@ namespace PencilCodeConverter
         /*   Clicking this button will install the Microsoft Small Basic software and makes the next button visible to the user   */
         private void MSB_Button_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start(GetPath("SmallBasic.msi"));
+            //System.Diagnostics.Process.Start(GetPath("SmallBasic.msi"));
             Continue_Button.IsEnabled = true;
+            System.IO.File.Create(path);
         }
 
         /*   Clicking this button will close the current window and open the next window to continue the file conversion   */
         private void Continue_Button_Click(object sender, RoutedEventArgs e)
         {
+            try { System.IO.File.WriteAllText(path, "true"); }
+            catch { }
             MainWindow main = new MainWindow();
             main.Show();
             this.Close();

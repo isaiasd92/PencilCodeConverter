@@ -1,11 +1,15 @@
+C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\bin\Debug\PencilCodeConverter.exe.config
+C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\PencilCodeConverter.csproj.ResolveComReference.cache
+C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\bin\Debug\Installed.txt
 C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\bin\Debug\Installation\EV3BasicInstaller.msi
 C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\bin\Debug\Installation\SmallBasic.msi
-C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\bin\Debug\PencilCodeConverter.exe.config
 C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\bin\Debug\PencilCodeConverter.exe
 C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\bin\Debug\PencilCodeConverter.pdb
+C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\PencilCodeConverter.csprojResolveAssemblyReference.cache
 C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\MainWindow.g.cs
 C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\Setup.g.cs
 C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\App.g.cs
+C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\PencilCodeConverter_Content.g.cs
 C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\PencilCodeConverter_MarkupCompile.cache
 C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\PencilCodeConverter_MarkupCompile.lref
 C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\MainWindow.baml
@@ -15,5 +19,3 @@ C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeCo
 C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\PencilCodeConverter.csproj.GenerateResource.Cache
 C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\PencilCodeConverter.exe
 C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\PencilCodeConverter.pdb
-C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\PencilCodeConverter.csprojResolveAssemblyReference.cache
-C:\Users\Owner\Source\Repos\PencilCodeConverter\PencilCodeConverter\PencilCodeConverter\obj\Debug\PencilCodeConverter.csproj.ResolveComReference.cache
