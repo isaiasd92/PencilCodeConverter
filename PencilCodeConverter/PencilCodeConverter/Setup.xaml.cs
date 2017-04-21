@@ -22,6 +22,7 @@ namespace PencilCodeConverter
     public partial class Setup : Window
     {
         string path = @"C:\EV3FilesInstalled.txt";
+        string dirPath = Directory.GetCurrentDirectory();
 
         public Setup()
         {
@@ -51,7 +52,7 @@ namespace PencilCodeConverter
         /*   Clicking this button will install the EV3 software and makes the next button visible to the user   */
         private void EV3_Button_Click(object sender, RoutedEventArgs e)
         {
-            //System.Diagnostics.Process.Start(GetPath("EV3BasicInstaller.msi"));
+            System.Diagnostics.Process.Start("https://drive.google.com/file/d/0B2ONq__xo-94MEhHWTExb1k5eUE/view?usp=sharing");
             MSB_Button.IsEnabled = true;
             MSB_Button.Foreground = new SolidColorBrush(Colors.Black);
         }
@@ -59,7 +60,7 @@ namespace PencilCodeConverter
         /*   Clicking this button will install the Microsoft Small Basic software and makes the next button visible to the user   */
         private void MSB_Button_Click(object sender, RoutedEventArgs e)
         {
-            //System.Diagnostics.Process.Start(GetPath("SmallBasic.msi"));
+            System.Diagnostics.Process.Start("https://drive.google.com/open?id=0B2ONq__xo-94NkZOMkVGNEZPeTQ");
             Continue_Button.IsEnabled = true;
             System.IO.File.Create(path);
         }

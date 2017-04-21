@@ -23,31 +23,36 @@ namespace PencilCodeConverter
             j++;
         }
 
+        /*   Removes the new line character in the word array   */
+        public string RemoveNewLine(string word)
+        {
+            string replacement = System.Text.RegularExpressions.Regex.Replace(word, @"\t|\n|\r", "");
+            return replacement;
+        }
+
         /*   Parses the pencilcode text file line-by-line and looks for specific commands and converts those commands into MSB code   */
         public void FileConversion(string _fileAddress)
         {
             string commands = System.IO.File.ReadAllText(_fileAddress);
             string words = System.Text.RegularExpressions.Regex.Replace(commands, @"\s+", Environment.NewLine);
 
-            wordArray = words.Split('\n');            
+            wordArray = words.Split('\n');
 
             for (int i = 0; i < wordArray.Length; i++)
             {
                 if (wordArray[i].Contains("fd"))
-                    AddToNewArray("Motor.Move(\"AB\", 50, 360, \"true\")");
-
+                    AddToNewArray("Motor.Start(\"BC\", " + RemoveNewLine(wordArray[i + 1]) + ")");
 
                 else if (wordArray[i].Contains("bk"))
-                    AddToNewArray("Motor.Move(\"AB\", -50, 360, \"true\")");
+                    AddToNewArray("Motor.Start(\"BC\", -" + RemoveNewLine(wordArray[i + 1]) + ")");
 
                 else if (wordArray[i].Contains("rt"))
-                    AddToNewArray("Motor.Move(\"AB\", 50, 270, \"true\")");
+                    AddToNewArray("Motor.Move(\"BC\", 100, " + RemoveNewLine(wordArray[i + 1]) + ", \"true\")");
 
                 else if (wordArray[i].Contains("lt"))
-                    AddToNewArray("Motor.Move(\"AB\", 50, 90, \"true\")");
+                    AddToNewArray("Motor.Move(\"BC\", 100, " + RemoveNewLine(wordArray[i + 1]) + ", \"true\")");
 
-                else
-                    break;
+                i++;
             }
 
             string robotCode = main.GetDesktopDirectory("robotCode.sb");    //Gets the desktop directory for the robotCode file

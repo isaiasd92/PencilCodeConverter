@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
 using System.Reflection;
 using System.Diagnostics;
 
@@ -24,6 +25,8 @@ namespace PencilCodeConverter
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool isEmpty = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -40,10 +43,14 @@ namespace PencilCodeConverter
         {
             string old_url = PencilCode_URL.Text;
 
-            //string old_url = "http://batmanizzy2.pencilcode.net/edit/intro";
-
-            string new_url = old_url.Replace("edit", "code");
-            New_URL_TextBlock.Text = new_url;
+            if (old_url != "")
+            {
+                isEmpty = false;
+                string new_url = old_url.Replace("edit", "code");
+                New_URL_TextBlock.Text = new_url;
+            }
+            else
+                isEmpty = true;
         }
 
         /*   Downloads the project URL with the new and edited text-formated URL   */
@@ -101,8 +108,8 @@ namespace PencilCodeConverter
         /*   Shows the user where the paste their pencilcode project code   */
         private void PencilCode_URL_GotFocus(object sender, RoutedEventArgs e)
         {
-            TextBox tb = (TextBox)sender;
-            MessageBox.Show("Enter PencilCode Project URL Here");
+            System.Windows.Controls.TextBox tb = (System.Windows.Controls.TextBox)sender;
+            System.Windows.Forms.MessageBox.Show("Enter PencilCode Project URL Here");
             tb.Text = string.Empty;
             tb.GotFocus -= PencilCode_URL_GotFocus;
         }
@@ -111,8 +118,14 @@ namespace PencilCodeConverter
         private void Enter_Button_Click(object sender, RoutedEventArgs e)
         {
             URL_Conversion();
-            Download_Button.IsEnabled = true;
-            Download_Button.Foreground = new SolidColorBrush(Colors.Black);
+
+            if (isEmpty == false)                   // Checks if the URL text box is filled. If so, it activates the DOWNLOAD button
+            {
+                Download_Button.IsEnabled = true;
+                Download_Button.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            else                                    // If the text box is empty, it shows the user the error window below
+                System.Windows.Forms.MessageBox.Show("URL Address Is Empty!\nPlease Enter a Pencil Code Project URL Address");
         }
 
         /*    Returns the Desktop path for a given file/program  */
@@ -129,7 +142,13 @@ namespace PencilCodeConverter
             DownloadFile();
             Files file = new Files();
             file.FileConversion(FileName);
-            System.Diagnostics.Process.Start(GetDesktopDirectory("Microsoft Small Basic"));
+            string message =  "Open The File Named \"robotCode.sb\" From Your Desktop To Load Your Project";
+            string caption = "Open File";
+
+            if (System.Windows.Forms.MessageBox.Show(message, caption, MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            {
+                System.Diagnostics.Process.Start(GetDesktopDirectory("Microsoft Small Basic"));
+            }
         }
 
         /*   Clicking this button allows the user to open Microsoft Small Basic at any time   */
@@ -145,7 +164,7 @@ namespace PencilCodeConverter
 
         private void MSBDoc_Button_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.dropbox.com/s/8gwdmrq4mvp8ujs/IntroToSmallBasic.pdf?dl=0");
+            System.Diagnostics.Process.Start("https://drive.google.com/open?id=0B2ONq__xo-94bzFuWVdvYXVCNmM");
         }
     }
 }
