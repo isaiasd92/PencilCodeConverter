@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PencilCodeConverter"
         mc:Ignorable="d"
-        Title="PencilCode Converter" Height="318.811" Width="601" WindowStartupLocation="CenterScreen">
+        Title="PencilCode Converter" Height="318.811" Width="601" WindowStartupLocation="CenterScreen"
+        Icon="pencilcodeicon.ico">
+    
     <Grid Background="DarkBlue">
         <TabControl x:Name="tabControl" HorizontalAlignment="Left" VerticalAlignment="Top" Height="288" Width="592" Background="Green">
             <TabItem Background="Gray" Header="PencilCode" FontSize="20">
                 <Grid HorizontalAlignment="Stretch" Background="Green">
                     <Button x:Name="PencilCode_Button" Background="DarkBlue" Foreground="White" Content="PencilCode" FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="161" Height="245" Click="PencilCode_Button_Click"/>
-                    <Button x:Name="CreateAccount_Button" Background="DarkBlue" Foreground="White" Content="Create Account" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="161" Height="245" Margin="210,0,211,0"/>
+                    <Button x:Name="CreateAccount_Button" Background="DarkBlue" Foreground="White" Content="Create Account" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="161" Height="245" Margin="210,0,211,0" Click="CreateAccount_Button_Click"/>
                     <Button x:Name="EV3Doc_Button" Background="DarkBlue" Foreground="White" Content="EV3 Manual" FontWeight="Bold" FontSize="25" HorizontalAlignment="Right" VerticalAlignment="Top" Width="161" Height="110" Click="EV3Doc_Button_Click" />
                     <Button x:Name="MSBDoc_Button" Background="DarkBlue" Foreground="White" Content="Microsoft Small&#13;&#10;  Basic Manual" FontWeight="Bold" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Top" Width="161" Height="110" Margin="0,135,0,0" Click="MSBDoc_Button_Click" />
                 </Grid>

@@ -105,6 +105,12 @@ namespace PencilCodeConverter
             System.Diagnostics.Process.Start("http://pencilcode.net/edit/first");
         }
 
+        /*   Allows the user to create a new PencilCode account   */
+        private void CreateAccount_Button_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://pencilcode.net/edit/first#new");
+        }
+
         /*   Shows the user where the paste their pencilcode project code   */
         private void PencilCode_URL_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -121,8 +127,22 @@ namespace PencilCodeConverter
 
             if (isEmpty == false)                   // Checks if the URL text box is filled. If so, it activates the DOWNLOAD button
             {
-                Download_Button.IsEnabled = true;
-                Download_Button.Foreground = new SolidColorBrush(Colors.Black);
+                if (New_URL_TextBlock.Text.Contains(".pencilcode.net/edit"))
+                {
+                    Download_Button.IsEnabled = true;
+                    Download_Button.Foreground = new SolidColorBrush(Colors.Black);
+                }
+                else
+                {
+                    string message = "ERROR! \nEnter A Valid PencilCode URL";
+                    string caption = "Invalid URL";
+
+                    if (System.Windows.Forms.MessageBox.Show(message, caption, MessageBoxButtons.OK) == System.Windows.Forms.DialogResult.OK)
+                    {
+                        PencilCode_URL.Text = String.Empty;
+                        Keyboard.Focus(PencilCode_URL);
+                    }
+                }
             }
             else                                    // If the text box is empty, it shows the user the error window below
                 System.Windows.Forms.MessageBox.Show("URL Address Is Empty!\nPlease Enter a Pencil Code Project URL Address");
@@ -145,10 +165,8 @@ namespace PencilCodeConverter
             string message =  "Open The File Named \"robotCode.sb\" From Your Desktop To Load Your Project";
             string caption = "Open File";
 
-            if (System.Windows.Forms.MessageBox.Show(message, caption, MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
-            {
+            if (System.Windows.Forms.MessageBox.Show(message, caption, MessageBoxButtons.OK) == System.Windows.Forms.DialogResult.OK)
                 System.Diagnostics.Process.Start(GetDesktopDirectory("Microsoft Small Basic"));
-            }
         }
 
         /*   Clicking this button allows the user to open Microsoft Small Basic at any time   */
@@ -157,11 +175,13 @@ namespace PencilCodeConverter
             System.Diagnostics.Process.Start(GetDesktopDirectory("Microsoft Small Basic"));
         }
 
+        /*   Downloads the EV3 documentation file   */
         private void EV3Doc_Button_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://sites.google.com/site/ev3basic/ev3-basic-programming/ev3-basic-manual");
         }
 
+        /*   Downloads the Microsoft Small Basic documentation file   */
         private void MSBDoc_Button_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://drive.google.com/open?id=0B2ONq__xo-94bzFuWVdvYXVCNmM");
