@@ -10,8 +10,8 @@ namespace PencilCodeConverter
 {
     class Files
     {
-        string[] SB = new string[100];          // Will hold the converted code in Microsoft Small Basic format
-        string[] wordArray = new string[100];   // Will hold the data from the pencilcode text file
+        string[] SB = new string[20];          // Will hold the converted code in Microsoft Small Basic format
+        string[] wordArray = new string[20];   // Will hold the data from the pencilcode text file
         int j = 0;      // Counter for the words in the text file
 
         MainWindow main = new MainWindow();
@@ -30,6 +30,15 @@ namespace PencilCodeConverter
             return replacement;
         }
 
+        /*   Converts the pencilcode string number to an integer   */
+        public string ConvertToNum(string word, double num)
+        {
+            double doubleWord = Convert.ToDouble(word);
+            double temp = num * doubleWord; 
+            string newVal = Convert.ToString(temp);
+            return newVal;
+        }
+
         /*   Parses the pencilcode text file line-by-line and looks for specific commands and converts those commands into MSB code   */
         public void FileConversion(string _fileAddress)
         {
@@ -41,16 +50,17 @@ namespace PencilCodeConverter
             for (int i = 0; i < wordArray.Length; i++)
             {
                 if (wordArray[i].Contains("fd"))
-                    AddToNewArray("Motor.Start(\"BC\", " + RemoveNewLine(wordArray[i + 1]) + ")");
+                    AddToNewArray("Motor.Move(\"BC\", 50, " + ConvertToNum(RemoveNewLine(wordArray[i + 1]), 7.2) + ", \"true\")");
 
                 else if (wordArray[i].Contains("bk"))
-                    AddToNewArray("Motor.Start(\"BC\", -" + RemoveNewLine(wordArray[i + 1]) + ")");
+
+                    AddToNewArray("Motor.Move(\"BC\", -50, " + ConvertToNum(RemoveNewLine(wordArray[i + 1]), 7.2) + ", \"true\")");
 
                 else if (wordArray[i].Contains("rt"))
-                    AddToNewArray("Motor.Move(\"BC\", 100, " + RemoveNewLine(wordArray[i + 1]) + ", \"true\")");
+                    AddToNewArray("Motor.Move(\"B\", 180, " + ConvertToNum(RemoveNewLine(wordArray[i + 1]), 2) + ", \"true\")");
 
                 else if (wordArray[i].Contains("lt"))
-                    AddToNewArray("Motor.Move(\"BC\", 100, " + RemoveNewLine(wordArray[i + 1]) + ", \"true\")");
+                    AddToNewArray("Motor.Move(\"C\", 180, " + ConvertToNum(RemoveNewLine(wordArray[i + 1]), 2) + ", \"true\")");
 
                 i++;
             }

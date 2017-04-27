@@ -127,7 +127,7 @@ namespace PencilCodeConverter
 
             if (isEmpty == false)                   // Checks if the URL text box is filled. If so, it activates the DOWNLOAD button
             {
-                if (New_URL_TextBlock.Text.Contains(".pencilcode.net/edit"))
+                if (PencilCode_URL.Text.Contains(".pencilcode.net/edit"))
                 {
                     Download_Button.IsEnabled = true;
                     Download_Button.Foreground = new SolidColorBrush(Colors.Black);

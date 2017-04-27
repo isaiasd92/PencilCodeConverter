@@ -11,6 +11,6 @@
     <Grid HorizontalAlignment="Stretch" Background="DarkBlue">
         <Button x:Name="EV3_Button" Background="Gray" Foreground="Black" Content="   Download&#13;&#10;EV3 Software" FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" Click="EV3_Button_Click" Margin="10,23,0,127" Width="231"/>
         <Button x:Name="MSB_Button" IsEnabled="False" Background="Gray" Foreground="White" Content="       Download&#13;&#10;  Microsoft Small&#13;&#10;   Basic Software"  FontWeight="Bold" FontSize="25" HorizontalAlignment="Right" Click="MSB_Button_Click" Margin="0,23,10,127" Width="231"/>
-        <Button x:Name="Continue_Button" IsEnabled="False" Background="Green" Foreground="White" Content="Continue" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" Height="80" Width="200" Margin="240,166,240,20" Click="Continue_Button_Click"/>
+        <Button x:Name="Continue_Button" Background="Green" Foreground="Black" Content="Continue" FontWeight="Bold" FontSize="25" HorizontalAlignment="Center" Height="80" Width="200" Margin="240,166,240,20" Click="Continue_Button_Click"/>
     </Grid>
 </Window>

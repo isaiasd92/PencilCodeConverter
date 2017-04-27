@@ -61,8 +61,8 @@ namespace PencilCodeConverter
         private void MSB_Button_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://drive.google.com/open?id=0B2ONq__xo-94NkZOMkVGNEZPeTQ");
-            Continue_Button.IsEnabled = true;
-            System.IO.File.Create(path);
+            EV3_Button.IsEnabled = false;
+            //System.IO.File.Create(path);
         }
 
         /*   Clicking this button will close the current window and open the next window to continue the file conversion   */
