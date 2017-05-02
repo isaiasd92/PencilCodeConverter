@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Diagnostics;
+using System.Media;
 
 namespace PencilCodeConverter
 {
@@ -129,6 +130,7 @@ namespace PencilCodeConverter
             {
                 if (PencilCode_URL.Text.Contains(".pencilcode.net/edit"))
                 {
+                    SystemSounds.Asterisk.Play();
                     Download_Button.IsEnabled = true;
                     Download_Button.Foreground = new SolidColorBrush(Colors.Black);
                 }

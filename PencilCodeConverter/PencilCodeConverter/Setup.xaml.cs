@@ -70,6 +70,7 @@ namespace PencilCodeConverter
         {
             try { System.IO.File.WriteAllText(path, "true"); }
             catch { }
+            MessageBox.Show("Please make move 'Microsoft Small Basic' to your Desktop");
             MainWindow main = new MainWindow();
             main.Show();
             this.Close();
