@@ -4,7 +4,9 @@ Team Visual Programming (Rippetzar)
 
 ********************************************************************************************
 
-Members:	Isaias Delgado (Team Lead)
+Members:	
+		
+		Isaias Delgado (Team Lead)
 		Zachary Martin
 		Cole Dapprich
 		Brashad Hasley
@@ -32,10 +34,6 @@ Software Used:
 		EV3 Drivers
 
 ********************************************************************************************
-
-GitHub Repository:
-
-		https://github.com/isaiasd92/PencilCodeConverter
 
 Document Folder:
 
